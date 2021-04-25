@@ -16,6 +16,5 @@ void loop()
    Serial.write(secondByte);
    */
     Serial.write(value/5);
-  //Serial.println(value);
    delay(50);
 }
