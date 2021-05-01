@@ -23,6 +23,7 @@ int countP2 = 0;
 
 boolean effect = false;
 boolean start = false;
+boolean textStart = false;
 Pulse pulse;
 Pulse music;
 LineEffect lest;
@@ -62,7 +63,14 @@ void draw() {
     sNoise.sNeffect();
     lest.lines();
   }
+  if (start == false) {
 
+    textSize(50);
+    text("Press 'W' for Play", width/4, height/3);
+    text("Press 'S' for On Effect", width/4, height/3+100);
+    text("Press 'A' for Off Effect", width/4, height/3+200);
+    text("Press 'D' for EXIT", width/4, height/3+300);
+  }
   if (start == true) {
     textSize(100);
     text(countP1/12, 100, 100);
@@ -109,9 +117,12 @@ void draw() {
   }
   if (countP1/12 == 10 && countP2/12<10) {
     start = false;
-    text("P1 WINS!!!", 100, 100);  
-    text("'W' for Play Again", 100, 100);
-}
+    text("P1 WINS", 100, 100);
+  }
+  if (countP2/12 == 10 && countP1/12<10) {
+    start = false;
+    text("P2 WINS", 100, 100);
+  }
 }
 
 void serialEvent(Serial myPort) {
